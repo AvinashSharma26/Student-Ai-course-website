@@ -68,45 +68,6 @@ const App: React.FC = () => {
   });
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
 
-  // Security Implementation: Global Protection Listeners
-  useEffect(() => {
-    const handleContextMenu = (e: MouseEvent) => {
-      e.preventDefault();
-      return false;
-    };
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Block F12
-      if (e.key === 'F12') {
-        e.preventDefault();
-      }
-      // Block Ctrl+Shift+I (Inspect)
-      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-        e.preventDefault();
-      }
-      // Block Ctrl+Shift+J (Console)
-      if (e.ctrlKey && e.shiftKey && e.key === 'J') {
-        e.preventDefault();
-      }
-      // Block Ctrl+U (View Source)
-      if (e.ctrlKey && e.key === 'u') {
-        e.preventDefault();
-      }
-      // Block Ctrl+S (Save Page)
-      if (e.ctrlKey && e.key === 's') {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
-
   useEffect(() => localStorage.setItem('nasledie_courses', JSON.stringify(courses)), [courses]);
   useEffect(() => localStorage.setItem('nasledie_offers', JSON.stringify(offers)), [offers]);
   useEffect(() => localStorage.setItem('nasledie_progress', JSON.stringify(progress)), [progress]);

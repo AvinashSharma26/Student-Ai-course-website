@@ -14,7 +14,6 @@ const Dashboard: React.FC = () => {
   const purchasedCourses = courses.filter(c => user?.purchasedCourses.includes(c.id));
   const currentCourse = courses.find(c => c.id === activeCourseId);
   
-  // Security Check: Verify if the user truly owns the course they are trying to watch
   const isAuthorizedToWatch = activeCourseId && user?.purchasedCourses.includes(activeCourseId);
 
   const getProgress = (courseId: string) => {
@@ -112,20 +111,13 @@ const Dashboard: React.FC = () => {
             {activeVideo && currentCourse && isAuthorizedToWatch ? (
               <div className="space-y-6 animate-fadeIn">
                 <div className="aspect-video bg-black border border-emerald-900/50 relative overflow-hidden group shadow-2xl">
-                  {/* Security-Enhanced Video Player */}
                   <video 
                     key={activeVideo.url} 
                     src={activeVideo.url} 
                     controls 
                     className="w-full h-full" 
                     poster={currentCourse.image}
-                    controlsList="nodownload" // Disable standard download button
-                    disablePictureInPicture // Disable PiP (often used to extract URLs)
-                    onContextMenu={(e) => e.preventDefault()} // Block right-click on video specifically
                   />
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-emerald-900/50 px-3 py-1 rounded text-[8px] uppercase tracking-widest text-emerald-500 font-bold pointer-events-none">
-                    Protected Content Stream
-                  </div>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-emerald-900/30 pb-6">
                    <div className="space-y-1">
