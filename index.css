@@ -1,29 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  body {
-    @apply bg-[#01120b] text-[#e2e8f0] font-sans overflow-x-hidden m-0;
-    font-family: 'Inter', sans-serif;
-  }
+body {
+  background-color: #01120b;
+  color: #e2e880;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .font-serif-cinzel {
-    font-family: 'Cinzel', serif;
-  }
-  .gold-text {
-    color: #d4af37;
-  }
-  .gold-gradient {
-    background: linear-gradient(135deg, #d4af37 0%, #f1d37e 50%, #b8860b 100%);
-  }
-  .emerald-overlay {
-    background: linear-gradient(to bottom, rgba(1, 18, 11, 0.4), rgba(1, 18, 11, 0.95));
-  }
+.font-serif-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.gold-text {
+  color: #d4af37;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f1d37e 50%, #b8860b 100%);
+}
+
+.emerald-overlay {
+  background: linear-gradient(to bottom, rgba(1, 18, 11, 0.4), rgba(1, 18, 11, 0.95));
 }
 
 /* Custom Scrollbar */
@@ -39,4 +37,13 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #d4af37;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
 }

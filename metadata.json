@@ -1,8 +1,5 @@
 {
   "name": "Nasledie AI Academy",
   "description": "A premium AI-focused course selling platform inspired by cinematic storytelling and futuristic aesthetics. Features deep green and gold themes, artistic course layouts, and a seamless checkout experience.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
+  "requestFramePermissions": []
 }
